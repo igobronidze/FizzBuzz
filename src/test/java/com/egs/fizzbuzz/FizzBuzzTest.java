@@ -2,6 +2,7 @@ package com.egs.fizzbuzz;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.junit.jupiter.api.Assertions;
@@ -22,7 +23,11 @@ public class FizzBuzzTest {
      */
     @Test
     public void testSolveFizzBuzz() {
-        FizzBuzz.solveFizzBuzz(Map.of(3, FizzBuzz.FIZZ, 5, FizzBuzz.BUZZ));
+        Map<Integer, String> map = new LinkedHashMap<>();
+        map.put(3, FizzBuzz.FIZZ);
+        map.put(5, FizzBuzz.BUZZ);
+        FizzBuzz.solveFizzBuzz(map);
+
         Assertions.assertEquals(FIZZ_BUZZ_RESULT_1_TO_100, outputStream.toString());
     }
 
