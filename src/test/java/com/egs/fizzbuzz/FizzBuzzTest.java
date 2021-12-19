@@ -143,5 +143,6 @@ public class FizzBuzzTest {
             "Fizz" + System.lineSeparator() +
             "97" + System.lineSeparator() +
             "98" + System.lineSeparator() +
-            "Fizz" + System.lineSeparator();
+            "Fizz" + System.lineSeparator() +
+            "Buzz" + System.lineSeparator();
 }

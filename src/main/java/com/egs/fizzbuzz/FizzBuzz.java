@@ -10,7 +10,7 @@ public class FizzBuzz {
     protected static final String BUZZ = "Buzz";
 
     private static final int FROM = 1;
-    private static final int TO = 100;
+    private static final int TO = 101;
 
     public static void main(String[] args) {
         solveFizzBuzz(Map.of(3, FizzBuzz.FIZZ, 5, FizzBuzz.BUZZ));
