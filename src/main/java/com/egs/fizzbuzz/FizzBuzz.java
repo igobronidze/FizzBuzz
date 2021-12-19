@@ -1,10 +1,11 @@
 package com.egs.fizzbuzz;
 
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class FizzBuzz {
 
-    protected static final String FIZZ_BUZZ = "FizzBuzz";
     protected static final String FIZZ = "Fizz";
     protected static final String BUZZ = "Buzz";
 
@@ -12,15 +13,15 @@ public class FizzBuzz {
     private static final int TO = 100;
 
     public static void main(String[] args) {
-        solveFizzBuzz();
+        solveFizzBuzz(Map.of(3, FizzBuzz.FIZZ, 5, FizzBuzz.BUZZ));
     }
 
     /**
      * Method for solve FizzBuzz problem
      */
-    public static void solveFizzBuzz() {
+    public static void solveFizzBuzz(Map<Integer, String> map) {
         IntStream.range(FROM, TO)
-                .mapToObj(FizzBuzz::getFizzBuzzValue)
+                .mapToObj(num -> getFizzBuzzValue(map, num))
                 .forEach(System.out::println);
     }
 
@@ -30,16 +31,15 @@ public class FizzBuzz {
      * @param number Number to check FizzBuzz value
      * @return FizzBuzz value
      */
-    protected static String getFizzBuzzValue(int number) {
-        if (number % 3 == 0 && number % 5 == 0) {
-            return FIZZ_BUZZ;
+    protected static String getFizzBuzzValue(Map<Integer, String> map, int number) {
+        Optional<Map.Entry<Integer, String>> optional = map.entrySet()
+                .stream()
+                .filter(integerStringEntry -> number % integerStringEntry.getKey() == 0)
+                .findFirst();
+        if (optional.isPresent()) {
+            return optional.get().getValue();
+        } else {
+            return String.valueOf(number);
         }
-        if (number % 3 == 0) {
-            return FIZZ;
-        }
-        if (number % 5 == 0) {
-            return BUZZ;
-        }
-        return String.valueOf(number);
     }
 }

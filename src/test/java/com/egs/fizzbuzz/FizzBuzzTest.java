@@ -2,6 +2,7 @@ package com.egs.fizzbuzz;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Map;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -21,23 +22,22 @@ public class FizzBuzzTest {
      */
     @Test
     public void testSolveFizzBuzz() {
-        FizzBuzz.solveFizzBuzz();
+        FizzBuzz.solveFizzBuzz(Map.of(3, FizzBuzz.FIZZ, 5, FizzBuzz.BUZZ));
         Assertions.assertEquals(FIZZ_BUZZ_RESULT_1_TO_100, outputStream.toString());
     }
 
     /**
      * Test getFizzBuzzValue for every possible option:
-     * 1. Divisible by both 3 and 5
-     * 2. Divisible by 3
-     * 3. Divisible by 5
-     * 4. Divisible by neither 3 nor 5
+     * 1. Divisible by 3
+     * 2. Divisible by 5
+     * 3. Divisible by neither 3 nor 5
      */
     @Test
     public void testGetFizzBuzzValue() {
-        Assertions.assertEquals(FizzBuzz.FIZZ_BUZZ, FizzBuzz.getFizzBuzzValue(15));
-        Assertions.assertEquals(FizzBuzz.FIZZ, FizzBuzz.getFizzBuzzValue(9));
-        Assertions.assertEquals(FizzBuzz.BUZZ, FizzBuzz.getFizzBuzzValue(25));
-        Assertions.assertEquals("8", FizzBuzz.getFizzBuzzValue(8));
+        Map<Integer, String> map = Map.of(3, FizzBuzz.FIZZ, 5, FizzBuzz.BUZZ);
+        Assertions.assertEquals(FizzBuzz.FIZZ, FizzBuzz.getFizzBuzzValue(map, 9));
+        Assertions.assertEquals(FizzBuzz.BUZZ, FizzBuzz.getFizzBuzzValue(map, 25));
+        Assertions.assertEquals("8", FizzBuzz.getFizzBuzzValue(map, 8));
     }
 
     private static final String FIZZ_BUZZ_RESULT_1_TO_100 = "1" + System.lineSeparator() +
@@ -54,7 +54,7 @@ public class FizzBuzzTest {
             "Fizz" + System.lineSeparator() +
             "13" + System.lineSeparator() +
             "14" + System.lineSeparator() +
-            "FizzBuzz" + System.lineSeparator() +
+            "Fizz" + System.lineSeparator() +
             "16" + System.lineSeparator() +
             "17" + System.lineSeparator() +
             "Fizz" + System.lineSeparator() +
@@ -69,7 +69,7 @@ public class FizzBuzzTest {
             "Fizz" + System.lineSeparator() +
             "28" + System.lineSeparator() +
             "29" + System.lineSeparator() +
-            "FizzBuzz" + System.lineSeparator() +
+            "Fizz" + System.lineSeparator() +
             "31" + System.lineSeparator() +
             "32" + System.lineSeparator() +
             "Fizz" + System.lineSeparator() +
@@ -84,7 +84,7 @@ public class FizzBuzzTest {
             "Fizz" + System.lineSeparator() +
             "43" + System.lineSeparator() +
             "44" + System.lineSeparator() +
-            "FizzBuzz" + System.lineSeparator() +
+            "Fizz" + System.lineSeparator() +
             "46" + System.lineSeparator() +
             "47" + System.lineSeparator() +
             "Fizz" + System.lineSeparator() +
@@ -99,7 +99,7 @@ public class FizzBuzzTest {
             "Fizz" + System.lineSeparator() +
             "58" + System.lineSeparator() +
             "59" + System.lineSeparator() +
-            "FizzBuzz" + System.lineSeparator() +
+            "Fizz" + System.lineSeparator() +
             "61" + System.lineSeparator() +
             "62" + System.lineSeparator() +
             "Fizz" + System.lineSeparator() +
@@ -114,7 +114,7 @@ public class FizzBuzzTest {
             "Fizz" + System.lineSeparator() +
             "73" + System.lineSeparator() +
             "74" + System.lineSeparator() +
-            "FizzBuzz" + System.lineSeparator() +
+            "Fizz" + System.lineSeparator() +
             "76" + System.lineSeparator() +
             "77" + System.lineSeparator() +
             "Fizz" + System.lineSeparator() +
@@ -129,7 +129,7 @@ public class FizzBuzzTest {
             "Fizz" + System.lineSeparator() +
             "88" + System.lineSeparator() +
             "89" + System.lineSeparator() +
-            "FizzBuzz" + System.lineSeparator() +
+            "Fizz" + System.lineSeparator() +
             "91" + System.lineSeparator() +
             "92" + System.lineSeparator() +
             "Fizz" + System.lineSeparator() +
