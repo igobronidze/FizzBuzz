@@ -26,8 +26,9 @@ public class FizzBuzz {
     }
 
     /**
-     * Method which returns FizzBuzz value for specific number
+     * Method which returns FizzBuzz values for specific number
      *
+     * @param map    Integer-String map which contains divisible numbers and their FizzBuzz values
      * @param number Number to check FizzBuzz value
      * @return FizzBuzz value
      */
